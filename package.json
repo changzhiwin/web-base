@@ -1,0 +1,32 @@
+{
+  "name": "web-base",
+  "version": "1.0.0",
+  "description": "base project",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier './src/**/*.{js,json,md,yml}' --write",
+    "lint": "eslint --ext .ts,.js,.vue ./src && prettier --check ./src"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "prepare-commit-msg": "validate-commit-msg"
+  },
+  "lint-staged": {
+    "./src/**/*": [
+      "prettier --write --ignore-unknown",
+      "eslint"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-react": "^7.23.2",
+    "lint-staged": "^10.5.4",
+    "prettier": "2.2.1",
+    "validate-commit-message": "^3.2.0",
+    "yorkie": "^2.0.0"
+  }
+}
